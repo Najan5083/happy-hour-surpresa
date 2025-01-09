@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -49,7 +48,7 @@
         <h1>Vamos tomar um vinho?</h1>
         <button onclick="pourWine()">🍷 Sim!</button>
         <div class="animation hidden" id="wineAnimation">
-            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Garrafa de vinho">
+            <img src="https://cdn-icons-png.flaticon.com/512/3176/3176364.png" alt="Garrafa de vinho">
             <img src="https://cdn-icons-png.flaticon.com/512/1046/1046795.png" alt="Taça de vinho">
         </div>
     </div>
@@ -58,9 +57,17 @@
         <h1>Vamos tocar/ensaiar, meu amor?</h1>
         <button onclick="playMusic()">🎶 Sim!</button>
         <div class="animation hidden" id="musicAnimation">
-            <img src="https://cdn-icons-png.flaticon.com/512/3507/3507489.png" alt="Xequerê">
+            <img src="https://cdn-icons-png.flaticon.com/512/1023/1023313.png" alt="Tambor">
             <img src="https://cdn-icons-png.flaticon.com/512/1046/1046751.png" alt="Flauta">
             <audio id="bossaNova" src="https://www.bensound.com/bensound-music/bensound-brazilsamba.mp3" preload="auto"></audio>
+        </div>
+    </div>
+
+    <div class="container hidden" id="step4">
+        <h1>Uma massagem de final de noite?</h1>
+        <button onclick="showFinalMessage()">💆‍♀️ Sim, te amo!</button>
+        <div class="animation hidden" id="finalMessage">
+            <p>Te amo! ❤️</p>
         </div>
     </div>
 
@@ -81,6 +88,14 @@
         function playMusic() {
             document.getElementById('musicAnimation').classList.remove('hidden');
             document.getElementById('bossaNova').play();
+            setTimeout(() => {
+                document.getElementById('step3').classList.add('hidden');
+                document.getElementById('step4').classList.remove('hidden');
+            }, 5000);
+        }
+
+        function showFinalMessage() {
+            document.getElementById('finalMessage').classList.remove('hidden');
         }
     </script>
 </body>
