@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Happy Hour</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4757;
+        }
+        .hidden {
+            display: none;
+        }
+        .animation img {
+            width: 100px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="step1">
+        <h1>Proposta de Happy Hour</h1>
+        <p>Vamos fazer um happy hour especial hoje?</p>
+        <button onclick="showWinePage()">❤️ Aceitar</button>
+    </div>
+
+    <div class="container hidden" id="step2">
+        <h1>Vamos tomar um vinho?</h1>
+        <button onclick="pourWine()">🍷 Sim!</button>
+        <div class="animation hidden" id="wineAnimation">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Garrafa de vinho">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046795.png" alt="Taça de vinho">
+        </div>
+    </div>
+
+    <div class="container hidden" id="step3">
+        <h1>Vamos tocar/ensaiar, meu amor?</h1>
+        <button onclick="playMusic()">🎶 Sim!</button>
+        <div class="animation hidden" id="musicAnimation">
+            <img src="https://cdn-icons-png.flaticon.com/512/3507/3507489.png" alt="Xequerê">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046751.png" alt="Flauta">
+            <audio id="bossaNova" src="https://www.bensound.com/bensound-music/bensound-brazilsamba.mp3" preload="auto"></audio>
+        </div>
+    </div>
+
+    <script>
+        function showWinePage() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+
+        function pourWine() {
+            document.getElementById('wineAnimation').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('step2').classList.add('hidden');
+                document.getElementById('step3').classList.remove('hidden');
+            }, 3000);
+        }
+
+        function playMusic() {
+            document.getElementById('musicAnimation').classList.remove('hidden');
+            document.getElementById('bossaNova').play();
+        }
+    </script>
+</body>
+</html>
